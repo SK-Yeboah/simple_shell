@@ -1,48 +1,5 @@
 #include "main.h"
 
-/**
- * shell_loop - main shell loop
- * @info: the parameter & return info struct
- * @av: the argument vector from main()
- *
- * Return: 0 on success, 1 on error, or error code
- */
-/*int shell_loop(shell_info *info, char **av)
-{
-	ssize_t r = 0;
-	int builtin_ret = 0;
-
-	while (r != -1 && builtin_ret != -2)
-	{
-		clear_info(info);
-		if (is_interactive(info))
-			cm_puts("$ ");
-		cm_eputchar(BUFFER_FLUSH);
-		r = get_input(info);
-		if (r != -1)
-		{
-			set_info(info, av);
-			builtin_ret = find_builtin(info);
-			if (builtin_ret == -1)
-				find_cmd(info);
-		}
-		else if (is_interactive(info))
-			cm_putchar('\n');
-		free_info(info, 0);
-	}
-	write_history_to_file(info);
-	free_info(info, 1);
-	if (!is_interactive(info) && info->status)
-		exit(info->status);
-	if (builtin_ret == -2)
-	{
-		if (info->error_num == -1)
-			exit(info->status);
-		exit(info->error_num);
-	}
-	return (builtin_ret);
-}*/
-
 
 /**
  * shell_loop - Main loop for the shell, reads and processes user input.
@@ -50,10 +7,6 @@
  * @param info Pointer to a shell_info structure containing shell-related information.
  * @param av Command-line arguments passed to the shell program.
  *
- * This function serves as the main loop of the shell. It reads user input,
- * processes built-in commands, and executes external commands as specified
- * by the user. The loop continues until an exit command is encountered or
- * an error occurs.
  *
  * Parameters:
  *   - info: Pointer to a shell_info structure where shell-related information
